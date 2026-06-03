@@ -1,0 +1,26 @@
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres-db
+    restart: always
+    environment: 
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: assessment_db
+    ports:
+      - "5432:5432"
+      
+  redis:
+    image: redis:latest
+    container_name: redis-server
+    restart: always
+    ports:
+      - "6379:6379"
+
+  rabbitmq:
+    image: rabbitmq:4-management
+    container_name: rabbitmq-server
+    restart: always
+    ports:
+      - "5672:5672"
+      - "15672:15672"
