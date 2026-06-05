@@ -5,6 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { RedisModule } from './redis/redis.module';
 import { RabbitmqModule } from './rabbitmq/rabbitmq.module';
+
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -17,6 +18,7 @@ import { RabbitmqModule } from './rabbitmq/rabbitmq.module';
       username: process.env.DATABASE_USER,
       password: String(process.env.DATABASE_PASSWORD),
       database: process.env.DATABASE_NAME,
+      entities: [],
       autoLoadEntities: true,
       synchronize: true,
     }),
